@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>
+	<!-- Include the MAVROS node with SITL and Gazebo -->
+	<include file="$(find px4)/launch/mavros_posix_sitl.launch">
+        <arg name="world" default="$(find mavlink_sitl_gazebo)/worlds/empty.world"/>
+	</include>
+
+	<!-- Our node to control the drone -->
+	<node pkg="px4_offboard_ros" type="mavros_offboard_control.py" name="offboard_test_node" required="true" output="screen" />
+</launch>
